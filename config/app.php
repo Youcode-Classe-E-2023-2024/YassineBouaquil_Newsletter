@@ -163,6 +163,7 @@ return [
         /*
          * Application Service Providers...
          */
+        Spatie\Permission\PermissionServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
@@ -182,6 +183,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Permission' => Spatie\Permission\PermissionFacade::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 

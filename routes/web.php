@@ -24,3 +24,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// routes/web.php
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/manage-users', [ExampleController::class, 'manageUsers']);
+});
