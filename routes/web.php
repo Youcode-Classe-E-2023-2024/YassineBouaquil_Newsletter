@@ -30,3 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/manage-users', [ExampleController::class, 'manageUsers']);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

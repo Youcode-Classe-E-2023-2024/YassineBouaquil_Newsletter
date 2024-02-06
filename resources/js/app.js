@@ -16,7 +16,7 @@ import { createApp } from 'vue';
 const app = createApp({});
 
 import ExampleComponent from './components/LoginForm.vue';
-app.component('login-form', ExampleComponent);
+app.component('example-component', ExampleComponent);
 
 /**
  * The following block of code may be used to automatically register your
