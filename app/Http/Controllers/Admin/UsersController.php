@@ -6,27 +6,17 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+namespace App\Http\Controllers;
 class UsersController extends Controller
 {
-<<<<<<< Updated upstream
-=======
-    public function __construct()
-    {
-        $this->middleware('auth');
-
-    }
->>>>>>> Stashed changes
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-<<<<<<< Updated upstream
         return view('admin.users.index');
-=======
         $users =  user::all();
         return view('admin.users.index')->with('users',$users);
->>>>>>> Stashed changes
     }
 
     /**
