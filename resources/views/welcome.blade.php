@@ -19,6 +19,8 @@
 
         <title>{{ config('app.name', 'Newsletter') }}</title>
 
+
+
         <!-- Fonts -->
 
 
@@ -29,16 +31,9 @@
 
     <body class="antialiased">
     @extends('layouts.app')
-
-
-
-    <div class="newsletter-container">
-
-    </div>
-
-
-
-
+    @section('content')
+            
+    @endsection
 
     </body>
 
