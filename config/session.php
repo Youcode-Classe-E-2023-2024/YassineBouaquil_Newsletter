@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
+use Laravel\Sanctum\Sanctum;
 
 return [
 
