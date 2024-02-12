@@ -61,5 +61,6 @@ Route::resource('/admin/users', 'Admin\UsersController');
 
 Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 
+Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 
 
