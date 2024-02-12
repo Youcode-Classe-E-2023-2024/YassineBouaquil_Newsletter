@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Newsletter') }}</title>
+    <title>{{ config('app.name', 'NEWSLETTER') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -32,7 +32,6 @@
                     <ul class="navbar-nav me-auto">
 
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -64,7 +63,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">Liste Des utilisateurs</a>
+                                    <a class="dropdown-item" href="{{ route('users.index') }}">Liste des Utilisateurs</a>
                                 </div>
                             </li>
                         @endguest
