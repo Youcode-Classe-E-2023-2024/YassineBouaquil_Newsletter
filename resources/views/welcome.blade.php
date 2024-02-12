@@ -39,13 +39,13 @@
             <form action="#" method="post" class="space-y-4 newsletter-form">
                 <div class="relative">
                     <input type="email" id="email" name="email" placeholder="Enter your email"
-                           class="block w-full border border-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent text-white">
+                           class="block w-full border border-white rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-white text-4xl focus:border-transparent text-center">
                     <button type="submit"
-                            class="absolute inset-y-0 right-0 px-6 py-2 bg-purple-700 text-white font-semibold rounded-md hover:bg-purple-800 focus:outline-none focus:bg-purple-800">
+                            class="absolute inset-y-0 right-0 px-6 py-2 bg-purple-700 font-semibold rounded-md hover:bg-purple-800 focus:outline-none focus:bg-purple-800">
                         Subscribe
                     </button>
                 </div>
-                <p class="text-sm text-gray-300">We'll never share your email with anyone else.</p>
+                <p class="text-sm text-gray-300 text-center">We'll never share your email with anyone else.</p>
             </form>
             <div class="flex items-center justify-center mt-6">
                 <span class="text-gray-300 mr-2">Follow us:</span>
