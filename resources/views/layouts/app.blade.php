@@ -63,7 +63,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                    <a class="dropdown-item" href="{{ route('users.index') }}">Liste des Utilisateurs</a>
+                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">Liste des Utilisateurs</a>
                                 </div>
                             </li>
                         @endguest

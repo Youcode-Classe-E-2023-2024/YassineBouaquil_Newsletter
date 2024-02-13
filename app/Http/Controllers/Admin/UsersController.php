@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-namespace App\Http\Controllers;
+
+
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
@@ -10,7 +11,9 @@ use Illuminate\Http\Request;
 
 
 
-namespace App\Http\Controllers;
+
+
+
 class UsersController extends Controller
 {
     /**
@@ -18,9 +21,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-
         return "Liste de mes utilisateurs";
-        
     }
 
     /**

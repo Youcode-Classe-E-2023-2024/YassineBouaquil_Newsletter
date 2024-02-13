@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin;
 // routes/web.php
+use App\Http\Controllers\Admin\UsersController;
 
-use App\Http\Controllers\UsersController;
+
+
 
 
 
@@ -31,7 +33,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // routes/web.php
 
@@ -50,17 +51,16 @@ Auth::routes([
     ]
 );
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/admin/users', 'Admin\UsersController');
 
-Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 
-Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 
+
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
+    Route::resource('users', 'UsersController');
+
+});
 
