@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 // routes/web.php
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\AdminController;
+
 
 
 
@@ -22,7 +25,8 @@ use App\Http\Controllers\Admin\UsersController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('/', function () {
     return view('welcome');
 });
@@ -55,5 +59,12 @@ Auth::routes([
 
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
-    Route::get('admin/user', [UsersController::class, 'index'])->name('users.index');
+    Route::get('users', [UsersController::class, 'index'])->name('users.index');
+});
+
+// routes/web.php
+
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/users/{user}/edit', [AdminController::class, 'editUser'])->name('users.edit');
 });
