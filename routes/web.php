@@ -39,11 +39,10 @@ Auth::routes();
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/manage-users', [ExampleController::class, 'manageUsers']);
 });
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
-Route::get('/admin/users', 'UserController@index')->name('admin.users.index');
+Route::get('/admin/users', 'UsersController@index')->name('admin.users.index');
 Route::get('/some-route', [UserController::class, 'methodName']);
 
 Auth::routes([
@@ -52,15 +51,9 @@ Auth::routes([
 );
 
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
-    Route::resource('users', 'UsersController');
-
+    Route::get('admin/user', [UsersController::class, 'index'])->name('users.index');
 });
-

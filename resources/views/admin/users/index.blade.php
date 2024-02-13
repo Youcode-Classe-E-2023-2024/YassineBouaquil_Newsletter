@@ -8,9 +8,10 @@
                     <div class="card-header">{{ __('Liste Des Utilisateurs') }}</div>
 
                     <div class="card-body">
-
-
-
+                        @foreach($users as $user )
+                            {{ $user->name }} - {{ $user->email}}
+                            <br>
+                        @endforeach
                     </div>
                 </div>
             </div>
