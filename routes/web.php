@@ -46,3 +46,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     // Add more admin routes as needed
 });
 
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+
