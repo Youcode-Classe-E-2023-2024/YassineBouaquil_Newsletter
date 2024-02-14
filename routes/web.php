@@ -7,7 +7,9 @@ use App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\IndexController;
 
 
 
@@ -40,13 +42,10 @@ Auth::routes();
 
 // routes/web.php
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/manage-users', [ExampleController::class, 'manageUsers']);
-});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
-Route::get('/admin/users', 'UsersController@index')->name('admin.users.index');
 Route::get('/some-route', [UserController::class, 'methodName']);
 
 Auth::routes([
@@ -68,3 +67,4 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/users/{user}/edit', [AdminController::class, 'editUser'])->name('users.edit');
     Route::put('/update/user/{user}', [AdminController::class, 'updateUser'])->name('users.update');});
+
