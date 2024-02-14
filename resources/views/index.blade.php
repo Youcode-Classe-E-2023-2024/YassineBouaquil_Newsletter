@@ -47,7 +47,7 @@
                         class="px-4 py-2 shadow-xl rounded-xl
                         placeholder-gray-50::placeholder">
                     <button class="bg-blue-500 hover:bg-blue-700 text-withe
-                    font-bold py-2 py-4 ml-4 rounded-full" type="submit">Submit</button>
+                    font-bold py-2 py-4 ml-4 rounded-full" type="submit">S'abonner</button>
 
                 </form>
             </div>

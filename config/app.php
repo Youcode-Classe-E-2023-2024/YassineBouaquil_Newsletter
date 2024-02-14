@@ -156,6 +156,8 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
+        Barryvdh\Snappy\ServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -183,6 +185,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'SnappyPDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+
         'Permission' => Spatie\Permission\PermissionFacade::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
