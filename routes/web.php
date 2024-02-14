@@ -67,4 +67,4 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/users/{user}/edit', [AdminController::class, 'editUser'])->name('users.edit');
-});
+    Route::put('/update/user/{user}', [AdminController::class, 'updateUser'])->name('users.update');});
