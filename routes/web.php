@@ -1,73 +1,48 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\Admin;
-// routes/web.php
-use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\Admin\NewsletterController;
 
-
-
-
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+// Auth Routes
 Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Auth::routes();
+// Home and Newsletter Routes
+Route::get('/', [\App\Http\Controllers\NewsletterController::class, 'index']);
+Route::post('/subscribe', [\App\Http\Controllers\NewsletterController::class, 'subscribe']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Standard Authentication Routes
+Auth::routes(['verify' => true]);
 
-Auth::routes();
-
-
-// routes/web.php
-
-
-Auth::routes();
-
+// Home Route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+
+// Example Custom Route
 Route::get('/some-route', [UserController::class, 'methodName']);
 
-Auth::routes([
-    'verify' => true
-    ]
-);
+// Resourceful Post Routes
+Route::resource('/posts', \App\Http\Controllers\PostController::class);
 
+// Admin Routes
+Route::prefix('admin')->name('admin.')->group(function () {
+    // User Routes
+    Route::get('/users/{user}/edit', [AdminController::class, 'editUser'])->name('users.edit');
+    Route::put('/update/user/{user}', [AdminController::class, 'updateUser'])->name('users.update');
 
-Route::resource('/posts',\App\Http\Controllers\PostController::class);
-
-
-
-
-
-Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
+    // Other Admin Routes
     Route::get('users', [UsersController::class, 'index'])->name('users.index');
+    // Add more admin routes as needed
 });
 
-// routes/web.php
-
-
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/users/{user}/edit', [AdminController::class, 'editUser'])->name('users.edit');
-    Route::put('/update/user/{user}', [AdminController::class, 'updateUser'])->name('users.update');});
+// Additional Admin Routes
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::get('permission', [PermissionController::class, 'index'])->name('permission.index');
+    Route::get('role', [RoleController::class, 'index'])->name('role.index');
+    // Add more admin routes as needed
+});
 
