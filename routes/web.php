@@ -11,17 +11,19 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Editor\MediaController;
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LoginRegister;
 
 // Auth Routes
 Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 
 // Home and Newsletter Routes
-Route::get('/', [\App\Http\Controllers\NewsletterController::class, 'index']);
+Route::get('/', [\App\Http\Controllers\NewsletterController::class, 'index'])->name('index');
 Route::post('/subscribe', [\App\Http\Controllers\NewsletterController::class, 'subscribe']);
 
 // Standard Authentication Routes
-// Auth::routes(['verify' => true]);        
+Auth::routes(['verify' => true]);
 
 // Home Route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
@@ -53,9 +55,17 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
 
 
-    Route::match(['get', 'post'], '/media', [MediaController::class, 'media'])->name('media');
+Route::match(['get', 'post'], '/media', [MediaController::class, 'media'])->name('media');
 
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/logout', [LoginController::class,'logout'])->name('logout');
+
 Route::get('/generate-pdf', [PdfController::class, 'generatepdf'])->name('generate-pdf');
 
 
+Route::get('/login', function() {
+    return view('auth.login');
+})->name('login');
+
+Route::get('/register', function() {
+    return view('auth.register');
+})->name('register');
