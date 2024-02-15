@@ -4,10 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\NewsletterController;
+use App\Http\Controllers\Editor\MediaController;
+
 
 // Auth Routes
 Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
@@ -18,7 +21,7 @@ Route::get('/', [\App\Http\Controllers\NewsletterController::class, 'index']);
 Route::post('/subscribe', [\App\Http\Controllers\NewsletterController::class, 'subscribe']);
 
 // Standard Authentication Routes
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);        
 
 // Home Route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
@@ -47,6 +50,12 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     // Add more admin routes as needed
 });
 
+
+
+
+    Route::match(['get', 'post'], '/media', [MediaController::class, 'media'])->name('media');
+
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/generate-pdf', [PdfController::class, 'generatepdf'])->name('generate-pdf');
 
 
