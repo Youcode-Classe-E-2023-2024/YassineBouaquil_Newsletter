@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\NewsletterController;
 
 // Auth Routes
@@ -23,7 +24,7 @@ Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 // Example Custom Route
-Route::get('/some-route', [UserController::class, 'methodName']);
+Route::get('/some-route', [UsersController::class, 'methodName']);
 
 // Resourceful Post Routes
 Route::resource('/posts', \App\Http\Controllers\PostController::class);
