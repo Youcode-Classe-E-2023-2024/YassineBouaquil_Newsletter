@@ -1,3 +1,4 @@
 <h1>
-    User has subscribed.
+    Hi!!!<br>
+    Thank you for subscribing to our newsletter,you will hear from us soon
 </h1>

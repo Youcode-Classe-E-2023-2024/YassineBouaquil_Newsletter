@@ -21,11 +21,10 @@
                                 Image</th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
-                                Download</th>
+                                Body</th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">
-                                Download</th>
-                            <th scope="col" class="relative px-6 py-3">Edit</th>
+                                Action</th>
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
@@ -41,14 +40,7 @@
                                         No Image
                                     @endif
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    @if ($post->hasMedia())
-                                        <img class="w-8 h-8 rounded-full" src="{{ $post->getFirstMedia()->getUrl() }}" />
-                                    @else
-                                        <!-- Handle the case when there is no media -->
-                                        No Image
-                                    @endif
-                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $post->body }}</td>
                                 <td class="px-6 py-4 text-right text-sm">
                                     <div class="flex space-x-2">
                                         <a href="{{ route('posts.edit',$post->id) }}"
@@ -67,7 +59,11 @@
 
                             <!-- More items... -->
                         </tbody>
+
                     </table>
+                    <div class="mt-4 ">
+                        {{ $posts->links() }}
+                    </div>
                 </div>
             </div>
         </div>

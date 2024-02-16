@@ -36,6 +36,7 @@
                     <a href="{{ route('generate-pdf') }}" class="btn btn-primary btn-lg mt-2  justify-content-center ">
                         Download users/roles DATA.PDF
                     </a>
+                    <a href="{{ route('posts.index') }}" class="btn btn-danger btn-lg mt-2  justify-content-center">liste des post</a>
 
                 </div>
             </div>
