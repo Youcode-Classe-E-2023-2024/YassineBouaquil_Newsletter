@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4959581889f9caba62b7de1d826e62b4",
+    "content-hash": "74dbdf686dad4e88988a79c3782a3705",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -3955,16 +3955,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "11.3.0",
+            "version": "11.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "e0317b1c33331c6e5ff05b80b184bb13ce7b41d3"
+                "reference": "a1823c02936d53ac441471cc57298e30d5908bbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/e0317b1c33331c6e5ff05b80b184bb13ce7b41d3",
-                "reference": "e0317b1c33331c6e5ff05b80b184bb13ce7b41d3",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/a1823c02936d53ac441471cc57298e30d5908bbf",
+                "reference": "a1823c02936d53ac441471cc57298e30d5908bbf",
                 "shasum": ""
             },
             "require": {
@@ -3979,7 +3979,7 @@
                 "illuminate/support": "^10.0",
                 "maennchen/zipstream-php": "^3.1",
                 "php": "^8.2",
-                "spatie/image": "^3.3.2",
+                "spatie/image": "^3.0",
                 "spatie/laravel-package-tools": "^1.16.1",
                 "spatie/temporary-directory": "^2.2",
                 "symfony/console": "^6.4.1|^7.0"
@@ -4048,7 +4048,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.3.0"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.0.0"
             },
             "funding": [
                 {
@@ -4060,7 +4060,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-02-14T12:57:24+00:00"
+            "time": "2023-12-14T14:18:03+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",

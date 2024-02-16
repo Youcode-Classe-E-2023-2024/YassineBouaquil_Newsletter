@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Editor\MediaController;
+use App\Http\Controllers\PostController;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LoginRegister;
@@ -33,7 +34,7 @@ Route::get('/some-route', [UsersController::class, 'methodName']);
 
 // Resourceful Post Routes
 Route::resource('/posts', \App\Http\Controllers\PostController::class);
-
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 // Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
     // User Routes

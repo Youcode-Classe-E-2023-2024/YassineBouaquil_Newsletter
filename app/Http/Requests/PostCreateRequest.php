@@ -9,6 +9,7 @@ class PostCreateRequest extends FormRequest
     /**
      * Determine if the user is authorized to make this request.
      */
+
     public function authorize(): bool
     {
         return true;
@@ -23,8 +24,7 @@ class PostCreateRequest extends FormRequest
     {
         return [
             'title' => ['required'],
-            'bode' => ['required']
-
+            'body' => ['required']
         ];
     }
 }
