@@ -32,4 +32,23 @@ class PostController extends Controller
 
         return redirect()->route('posts.index');
     }
+    public function edit(Post $post){
+        return view('posts.edit',compact('post'));
+    }
+    public function update(PostCreateRequest $request, Post $post){
+        $post->update($request->validated());
+        if($request->hasFile('image')){
+            $post->clearMediaCollection();
+            $post->addMediaFromRequest('image')->usingName($post->title)->toMediaCollection();
+
+        }
+        return to_route('posts.index');
+    }
+
+    public function destroy($id){
+        $post=Post::findOrFail($id);
+        $post ->delete();
+        return to_route('posts.index');
+
+    }
 }

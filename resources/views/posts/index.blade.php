@@ -34,19 +34,27 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $post->id }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $post->title }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <img class="w-8 h-8 rounded-full"
-                                         src="" />
+                                    @if ($post->hasMedia())
+                                        <img class="w-8 h-8 rounded-full" src="{{ $post->getFirstMediaUrl() }}" />
+                                    @else
+                                        <!-- Handle the case when there is no media -->
+                                        No Image
+                                    @endif
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <img class="w-8 h-8 rounded-full"
-                                         src="" />
+                                    @if ($post->hasMedia())
+                                        <img class="w-8 h-8 rounded-full" src="{{ $post->getFirstMedia()->getUrl() }}" />
+                                    @else
+                                        <!-- Handle the case when there is no media -->
+                                        No Image
+                                    @endif
                                 </td>
                                 <td class="px-6 py-4 text-right text-sm">
                                     <div class="flex space-x-2">
-                                        <a href=""
+                                        <a href="{{ route('posts.edit',$post->id) }}"
                                            class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Edit</a>
                                         <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
-                                              method="POST" action=""
+                                              method="POST" action="{{ route('posts.destroy',$post->id) }}"
                                               onsubmit="return confirm('Are you sure?');">
                                             @csrf
                                             @method('DELETE')
