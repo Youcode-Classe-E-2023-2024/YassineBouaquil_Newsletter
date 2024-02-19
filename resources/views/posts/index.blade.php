@@ -36,7 +36,6 @@
                                     @if ($post->hasMedia())
                                         <img class="w-8 h-8 rounded-full" src="{{ $post->getFirstMediaUrl() }}" />
                                     @else
-                                        <!-- Handle the case when there is no media -->
                                         No Image
                                     @endif
                                 </td>

@@ -4,14 +4,14 @@
             <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="sm:col-span-6">
-                    <label for="title" class="block text-sm font-medium text-gray-700"> Post Title </label>
+                    <label for="title" class="block text-sm font-medium text-gray-700"> NEWSLETTER Title </label>
                     <div class="mt-1">
                         <input type="text" id="title" name="title"
                                class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                     </div>
                 </div>
                 <div class="sm:col-span-6">
-                    <label for="title" class="block text-sm font-medium text-gray-700"> Post Image </label>
+                    <label for="title" class="block text-sm font-medium text-gray-700"> NEWSLETTER Image </label>
                     <div class="mt-1">
                         <input type="file" id="image" name="image"
                                class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
